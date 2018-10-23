@@ -4,7 +4,7 @@
 <p><h3>Grey-Wolf-Optimization</h3>
 
 <h4 align="center">Pseudo code for GWO :-</h4></p>
-<b>
+
 <p style="padding-right: 5px;">1. Initialize the grey wolf population Xi (i = 1, 2, ..., n)<br>
 2. Initialize a, A, and C<br>
 3. Calculate the fitness of each search agent<br>
@@ -22,6 +22,6 @@
 15. end while<br>
 16. return Xα<br>
   </p>
-</b>             
+            
 
 </html>
