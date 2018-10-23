@@ -1,10 +1,5 @@
 # GWO
 <html>
-<style>
-h3 {text-align:center;
-  text-color:red}
-p {text-align:center;}
-</style>
 
 <p><h3>Grey-Wolf-Optimization</h3>
 
