@@ -1,12 +1,11 @@
 # GWO
 <html>
-<head>
 <style>
-h3 {text-align:center;}
+h3 {text-align:center;
+  text-color:red}
 p {text-align:center;}
 </style>
-</head>
-<body>
+
 <p><h3>Grey-Wolf-Optimization</h3>
 
 <h5>Pseudo code for GWO :-<h5>
@@ -29,5 +28,4 @@ p {text-align:center;}
 16. return Xα<br>
 </h5>             
 </p>
-</body>
 </html>
