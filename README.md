@@ -1,10 +1,10 @@
-# GWO
+<h1 align="center"># GWO</h1>
 <html>
 
 <p><h3>Grey-Wolf-Optimization</h3>
 
 <h5>Pseudo code for GWO :-<h5>
-<b>
+<b align="center">
 1. Initialize the grey wolf population Xi (i = 1, 2, ..., n)<br>
 2. Initialize a, A, and C<br>
 3. Calculate the fitness of each search agent<br>
