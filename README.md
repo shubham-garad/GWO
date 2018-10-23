@@ -1,8 +1,8 @@
 # GWO
-Grey-Wolf-Optimization
+<p><h3>Grey-Wolf-Optimization</h3>
 
-Pseudo code for GWO :-
-<p>
+<h5>Pseudo code for GWO :-<h5>
+<b>
 1. Initialize the grey wolf population Xi (i = 1, 2, ..., n)<br>
 2. Initialize a, A, and C<br>
 3. Calculate the fitness of each search agent<br>
@@ -19,5 +19,5 @@ Pseudo code for GWO :-
 14. t=t+1<br>
 15. end while<br>
 16. return Xα<br>
-             
+</h5>             
 </p>
