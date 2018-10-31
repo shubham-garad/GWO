@@ -46,33 +46,10 @@ int F1(int x[])
 	return fit;
 }
 
-float GWO(string objf,float lb,float ub,float dim,
-	float SearchAgents_no,float Max_iter);//obif, lb,ub,dim we will get from benchmark function not from optimizer
+//float GWO(string objf,float lb,float ub,float dim,
+//	float SearchAgents_no,float Max_iter);//obif, lb,ub,dim we will get from benchmark function not from optimizer
 
-int main(int args, char* arg[])
-{
-	/*bool benchmarkfunc[]={true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
-		,false,false,false,false}; //length of benchmarkfunc array is: 23
- //not required currently as we are directly passing F1 function name while calling GWO function
-	*/
-	int NumOfRuns=1;
-	int PopulationSize=50;
-	int Iterations=100;
-
-	//bool Export=false; for exporting results
-
-	//bool Flag=false;
-
-	for (int j=0;j<23;j++)
-	{
-		for(int k=0;k<NumOfRuns;k++)
-		{
-			GWO("F1",-100,100,30,PopulationSize,Iterations);
-			//Flag=true;
-		}
-	}
-}
-double *randomUniform(int lb1, int ub1, int length )  //for slicing the elements from array which are out of bound
+/*double *randomUniform(int lb1, int ub1, int length )  //for slicing the elements from array which are out of bound
 {
 	const double lb=lb1;
 	const double ub=ub1;
@@ -107,8 +84,8 @@ double *add(double a[], int ad)
 		resultArray[i]=a[i]+ad;
 	}
 	return resultArray;
-}
-double *clamp(double positions[], int lb, int ub)
+}*/
+/*double *clamp(double positions[], int lb, int ub)
 {
 	int l=lenDouble(positions);
 	int j=0;
@@ -121,10 +98,9 @@ double *clamp(double positions[], int lb, int ub)
 			j++;
 		}	
 	}
-	return positionsI;
-	
-}
-int GWO(string objf,int lb,int ub,int dim,int SearchAgents_no,int Max_iter)//obif, lb,ub,dim we will get from benchmark function not from optimizer
+	return positionsI;	
+}*/
+int GWO(int lb,int ub,int dim,int SearchAgents_no,int Max_iter)//obif, lb,ub,dim we will get from benchmark function not from optimizer
 {
 	double Alpha_pos[dim];
 	double Alpha_score = std::numeric_limits<double>::infinity();
@@ -138,16 +114,79 @@ int GWO(string objf,int lb,int ub,int dim,int SearchAgents_no,int Max_iter)//obi
 	//initialize the positions of search agents
 	int AgentsDim=SearchAgents_no*dim;
 	double Positions[AgentsDim]; //initializing the array holding the Positions of wolves 
-	Positions=add(prod(randomUniform(0,1,AgentsDim),(ub-lb)),(lb)) //randomUniform will return double values between 0 and 1
+	
+	// Positions=add(prod(randomUniform(0,1,AgentsDim),(ub-lb)),(lb)) -- Equation 1
+	/* ("ORIGINAL FORMULA") Positions=add(prod(randomUniform(0,1,AgentsDim),(ub-lb)),(lb)) "Implimented like below:-" */
+	//this block
+    std::random_device rd;
+    std::mt19937_64 mt(rd());
+    std::uniform_real_distribution<double> distribution(lb, ub);
+    double array[AgentsDim];
 
+    for(int i = 0; i < AgentsDim; i++)
+    {
+        double d = distribution(mt);
+        array[i] = d;
+    }
+	//will perform the randomUniform function
+
+	/* ("NOW THE EQUATION SIMPLIFIESAD: ")Positions=add(prod(array,(ub-lb)),(lb))  "it is IMPLIMENTED like below:- "*/
+
+	//this block
+	int l=lenDouble(array);
+	double productArray[l];
+	for (int i=0;i<l;i++)
+	{
+		productArray[i]=array[i]*(ub-lb);
+	}
+	// will perform the prod function
+
+	/*("NOW EQUATION FURTHER SIMPLIFIES TO:- ") Positions=add(productArray,lb) "it will be calculated like:- "*/
+	//this block
+	//int lpA=lenDouble(productArray);  //lpA- length of product array
+	double addArray[l];
+	for (int i=0; i<l;i++)
+	{
+		addArray[i]=productArray[i]+lb;
+	}
+	//will perform add function in euation
+	//# Positions=addArray //randomUniform will return double values between 0 and 1
+
+	//delete[] Positions; //deleting the old Postions array and clearing memory	//
+	//double Positions[lpA]; //creating a new Poitions array with different length //
+	for (int i=0;i<l;i++) //coping elements from PositionsI to positions       //    assigning result of equation 1 to positions
+	{																			//
+		Positions[i]=addArray[i];												//					
+	}																			//
+/*for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for  
+for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for 
+for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for  
+for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for for */
 	double Convergence_curve[Max_iter];
 	
-	cout<<"GWO is optimizing  F1";
+	cout<<"\n--------------------------------------GWO is optimizing F1--------------------------\n";
 	
 	//cout<<"GWO is optimizing \" "<<objf.__name__<<"\"";
 	for(int l=0;l<Max_iter;l++)
 	{
-		Positions=clamp(Positions, lb, ub);
+		//Positions=clamp(Positions, lb, ub);
+		int q=lenDouble(Positions);
+		int j=0;
+		double positionsI[q];
+		for (int i=0;i<l;i++)
+		{
+			if(double(lb)<=Positions[i]<=double(ub))
+			{
+				positionsI[j]=Positions[i];
+				j++;
+			}	
+		}
+		//delete[] Positions; //deleting the old Postions array and clearing memory
+		//double Positions[q]; //creating a new Poitions array with different length 
+		for (int i=0;i<q;i++) //coping elements from PositionsI to Positions
+		{
+			Positions[i]=positionsI[i];	
+		}	
 		for(int i=0;i<SearchAgents_no;i++)
 		{	
 			//Return back the search agents that go beyond the boundries of the search space
@@ -155,7 +194,7 @@ int GWO(string objf,int lb,int ub,int dim,int SearchAgents_no,int Max_iter)//obi
 			// Or #include <algorithm> std::clamp(n, lower, upper);
 			//Calculate objective function for each search agent
 			
-			double fitness=objf(Positions[i]);
+			double fitness=2.0;  //objf(Positions[i]);
 
 			if(fitness<Alpha_score)
 			{
@@ -208,7 +247,30 @@ int GWO(string objf,int lb,int ub,int dim,int SearchAgents_no,int Max_iter)//obi
 		}
 		//Convergence_curve [l]=Alpha_score;
 
-		cout<< "At iteration " << l << "the best fitness is " << Alpha_score;
+		cout<< "At iteration " << l << "the best fitness is " << Alpha_score<<"\n";
 	}
 }
 
+int main(int args, char* arg[])
+{
+	/*bool benchmarkfunc[]={true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
+		,false,false,false,false}; //length of benchmarkfunc array is: 23
+ //not required currently as we are directly passing F1 function name while calling GWO function
+	*/
+	int NumOfRuns=1;
+	int PopulationSize=50;
+	int Iterations=100;
+
+	//bool Export=false; for exporting results
+
+	//bool Flag=false;
+
+	for (int j=0;j<23;j++)
+	{
+		for(int k=0;k<NumOfRuns;k++)
+		{
+			GWO(-100,100,30,PopulationSize,Iterations);
+			//Flag=true;
+		}
+	}
+}
