@@ -1,5 +1,5 @@
-<h1>Refer GWO.cpp All the errors removed!!!!!</h1>
-
+<h1>Finally GWO (working) is here!!!!!</h1>
+<h4> Still need to add other fitness functions from benchmarks.cpp but yeah now atleast it is working.. :) :)</h4>
 <h1 align="center"># GWO</h1>
 <html>
 
