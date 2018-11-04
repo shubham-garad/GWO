@@ -1,5 +1,5 @@
-<h1>Finally GWO (working) is here!!!!!</h1>
-<h4> Still need to add other fitness functions from benchmarks.cpp but yeah now it is almost done .. :) :)</h4>
+<h1>Open GWO.cpp here!!!!!</h1>
+<h4> Still need to add other fitness functions from benchmarks.cpp but yeah now it is almost done .. :) :)<br>I know it's not like professional but blame the algo for it not me</h4>
 <h1 align="center"># GWO</h1>
 <html>
 
