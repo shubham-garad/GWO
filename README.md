@@ -27,8 +27,8 @@
 <p>
 <h3 align="center"> Depedencies:</h3></p>
  <ul>
-  <li><b>Make sure your gcc version is 4.9.2 or higher</b> You can check it in Devcpp in compiler options
-    <br>You can download it from <a href="url">here</a></li>
+  <li>**Make sure your gcc version is 4.9.2 or higher** You can check it in Devcpp in compiler options
+    <br>__You can download it from <a href="url">here</a>__</li>
   <li>Go to your compiler settings and add <i>"-std=c++11"</i> in the commands when calling the compiler<br>
     <t>and <i>"-static-libgcc"</i> in the commands when calling the linker</t></li>
       <li>select the <em>'TDM-GCC 4.9.2 64-bit Release'</em> I don't know why but, for 32 bit it is not <br> working maybe a <i>bug</i></li>
