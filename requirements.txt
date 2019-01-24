@@ -1,0 +1,8 @@
+ Depedencies:
+
+    Make sure your gcc version is 4.9.2 or higher You can check it in Devcpp in compiler options
+    You can download it from here
+    Go to your compiler settings and add "-std=c++11" in the commands when calling the compiler
+    and "-static-libgcc" in the commands when calling the linker
+    select the 'TDM-GCC 4.9.2 64-bit Release' I don't know why but, for 32 bit it is not
+    working maybe a bug
