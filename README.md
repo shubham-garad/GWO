@@ -31,7 +31,7 @@
     <br><t><u>You can download it from <a href="url">here</a></u></t></li>
   <li>Go to your compiler settings and add <i>"-std=c++11"</i> in the commands when calling the compiler<br>
     <t>and <i>"-static-libgcc"<i> in the commands when calling the linker</t></li>
-    <li>select the <em>'TDM-GCC 4.9.2 64-bit Release'</em> I don't know but for 32 bit it is not working maybe a <i>bug</i></li>
+      <li>select the <i>'TDM-GCC 4.9.2 64-bit Release'</i> I don't know why but, for 32 bit it is not <br> working maybe a <i>bug</i></li>
 </ul> 
 
 </html>
