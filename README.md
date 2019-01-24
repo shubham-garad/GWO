@@ -24,6 +24,14 @@
 15. end while<br>
 16. return Xα<br>
   </p>
-            
+<p>
+<h4 align="center"> Depedencies:</h4></p>
+ <ul>
+  <li><b>Make sure your gcc version is 4.9.2</b> You can check it in Devcpp in compiler options
+<br>You can download it from <a href="url">here</a></li>
+  <li>Go to your compiler settings and add <i>"-std=c++11"</i> in the commands when calling the compiler<br>
+  and <i>"-static-libgcc"<i> in the commands when calling the linker</li>
+    <li>select the <em>'TDM-GCC 4.9.2 64-bit Release'</em> I don't know but for 32 bit it is not working maybe a <i>bug</i></li>
+</ul> 
 
 </html>
