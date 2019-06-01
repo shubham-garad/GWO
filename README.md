@@ -1,4 +1,5 @@
-<h1>Open FinalFinalGWO.cpp for latest working code!!!!!</h1>
+	The Project was done in association with a PhD student from DAV University. The project was totally research oriented mimicking the behavior of grey wolfs’ strategy of hunting. I implemented this genetic algorithm in C++ programming language, the main motto of this project was to compare the performance over different programming languages. The github link for the project is- https://github.com/shubham-11700069/GWO
+<h3>Open FinalFinalGWO.cpp for latest working code!!!!!</h3>
 <h4>Open FinalFinalGWO.cpp for latest working code.<br> <br>Still need to add other fitness functions from benchmarks.cpp but yeah now it is almost done .. :) :)<br>I know it's not professional code or like professional coder's work, blame the algo :)</h4>
 <h1 align="center"># GWO</h1>
 <html>
